@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人网站模板</title>
+  <style>
+    /* 基础样式 */
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: "Arial", "Helvetica", sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #4e89ae;
+      color: #fff;
+      padding: 60px 0;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #396b8a;
+      padding: 10px 0;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    section h2 {
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+    /* 关于我部分 */
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .about img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      margin-right: 30px;
+    }
+    .about-text {
+      flex: 1;
+    }
+    /* 项目展示部分 */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 20px;
+    }
+    .project-item {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    .project-item h3 {
+      margin-top: 0;
+    }
+    /* 底部 */
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+    }
+    footer a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>你的名字</h1>
+    <p>一句吸引人的自我介绍</p>
+  </header>
+  <nav>
+    <a href="#about">关于我</a>
+    <a href="#projects">项目展示</a>
+    <a href="#contact">联系方式</a>
+  </nav>
+  <section id="about">
+    <h2>关于我</h2>
+    <div class="about">
+      <!-- 个人照片，可替换 src 为你自己的照片链接 -->
+      <img src="https://via.placeholder.com/150" alt="个人头像">
+      <div class="about-text">
+        <p>在这里写一些关于你的背景、兴趣和技能的介绍。你可以用几段文字来描述你的经历、兴趣爱好和擅长领域，展示你的个性和特色。</p>
+      </div>
+    </div>
+  </section>
+  <section id="projects">
+    <h2>项目展示</h2>
+    <div class="projects">
+      <div class="project-item">
+        <h3>项目标题 1</h3>
+        <p>项目描述内容简介，说明项目的目标、使用的技术和你的贡献。你可以放置一个链接到项目的存储库或网站。</p>
+      </div>
+      <div class="project-item">
+        <h3>项目标题 2</h3>
+        <p>另一项目简介，简明扼要地介绍项目功能、解决的问题和你在项目中的角色。</p>
+      </div>
+      <!-- 可继续添加更多项目 -->
+    </div>
+  </section>
+  <section id="contact">
+    <h2>联系方式</h2>
+    <p>在这里提供你的联系方式，例如电子邮件地址、社交媒体链接（如 LinkedIn、GitHub、微博等），让人们可以联系到你。</p>
+  </section>
+  <footer>
+    <p>&copy; 2025 你的名字. 保留所有权利. | <a href="mailto:example@example.com">发送邮件</a></p>
+  </footer>
+</body>
+</html>
