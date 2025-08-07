@@ -3,140 +3,726 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>个人网站模板</title>
+  <title>个人网站 - 欢迎来到我的世界</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* 基础样式 */
-    html, body {
+    * {
       margin: 0;
       padding: 0;
-      font-family: "Arial", "Helvetica", sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       line-height: 1.6;
-    }
-    header {
-      background-color: #4e89ae;
-      color: #fff;
-      padding: 60px 0;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 3rem;
-    }
-    header p {
-      font-size: 1.2rem;
-      margin-top: 10px;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      background-color: #396b8a;
-      padding: 10px 0;
-    }
-    nav a {
-      color: #fff;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    section h2 {
       color: #333;
-      margin-bottom: 20px;
-      font-size: 2rem;
+      background: #f8f9fa;
+      overflow-x: hidden;
     }
-    /* 关于我部分 */
-    .about {
+
+    /* 导航栏 */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e9ecef;
+      z-index: 1000;
+      padding: 1rem 0;
+      transition: all 0.3s ease;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 1.5rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #495057;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
       align-items: center;
     }
-    .about img {
+
+    .nav-links a {
+      text-decoration: none;
+      color: #495057;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+      padding: 0.5rem 0;
+    }
+
+    .nav-links a:hover {
+      color: #007bff;
+    }
+
+    /* 语言切换按钮 */
+    .language-switch {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+
+    .language-switch:hover {
+      background: #0056b3;
+    }
+
+    .language-switch i {
+      font-size: 0.9rem;
+    }
+
+    /* 移动端菜单 */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #495057;
+      cursor: pointer;
+    }
+
+    /* 英雄区域 */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #333;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: white;
+      color: #667eea;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* 内容区域 */
+    .section {
+      padding: 5rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      color: #333;
+    }
+
+    /* 关于我 */
+    .about {
+      background: white;
+      border-radius: 12px;
+      padding: 3rem;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .profile-img {
+      width: 250px;
+      height: 250px;
       border-radius: 50%;
-      width: 150px;
-      height: 150px;
-      margin-right: 30px;
+      object-fit: cover;
+      border: 4px solid #e9ecef;
+      transition: transform 0.3s ease;
     }
-    .about-text {
-      flex: 1;
+
+    .profile-img:hover {
+      transform: scale(1.05);
     }
-    /* 项目展示部分 */
-    .projects {
+
+    .about-text h3 {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    .about-text p {
+      color: #666;
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .skill-tag {
+      background: #007bff;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+
+    .skill-tag:hover {
+      background: #0056b3;
+    }
+
+    /* 项目展示 */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .project-content h3 {
+      color: #333;
+      margin-bottom: 0.8rem;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .project-content p {
+      color: #666;
+      margin-bottom: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .project-links a {
+      padding: 0.6rem 1.2rem;
+      background: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+
+    .project-links a:hover {
+      background: #0056b3;
+    }
+
+    /* 联系方式 */
+    .contact {
+      background: white;
+      border-radius: 12px;
+      padding: 3rem;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      grid-gap: 20px;
+      gap: 2rem;
+      margin-top: 2rem;
     }
-    .project-item {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
-    .project-item h3 {
-      margin-top: 0;
-    }
-    /* 底部 */
-    footer {
-      background-color: #333;
-      color: #fff;
+
+    .contact-item {
       text-align: center;
-      padding: 20px 0;
+      padding: 2rem;
+      border-radius: 8px;
+      background: #f8f9fa;
+      transition: transform 0.3s ease;
     }
-    footer a {
-      color: #60a5fa;
+
+    .contact-item:hover {
+      transform: translateY(-3px);
+    }
+
+    .contact-item i {
+      font-size: 2.5rem;
+      color: #007bff;
+      margin-bottom: 1rem;
+    }
+
+    .contact-item h3 {
+      margin-bottom: 0.8rem;
+      color: #333;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    .contact-item a {
+      color: #007bff;
       text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+      color: #0056b3;
+    }
+
+    /* 页脚 */
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .social-links a {
+      color: #ccc;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+      padding: 0.5rem;
+    }
+
+    .social-links a:hover {
+      color: #007bff;
+    }
+
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+      }
+
+      .profile-img {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+      }
+
+      .section {
+        padding: 3rem 1rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .about, .contact {
+        padding: 2rem;
+        margin: 1rem 0;
+      }
+
+      .project-content {
+        padding: 1.2rem;
+      }
+
+      .contact-item {
+        padding: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .about-content {
+        gap: 1.5rem;
+      }
+
+      .profile-img {
+        width: 150px;
+        height: 150px;
+      }
+
+      .skills {
+        justify-content: center;
+      }
+
+      .project-links {
+        flex-direction: column;
+      }
+
+      .project-links a {
+        text-align: center;
+      }
+    }
+
+    /* 移动端菜单展开 */
+    .nav-links.mobile-open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      border-bottom: 1px solid #e9ecef;
+      padding: 1rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.mobile-open li {
+      margin: 0.5rem 0;
+    }
+
+    .nav-links.mobile-open a {
+      padding: 0.8rem 1.5rem;
+      display: block;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>你的名字</h1>
-    <p>一句吸引人的自我介绍</p>
-  </header>
-  <nav>
-    <a href="#about">关于我</a>
-    <a href="#projects">项目展示</a>
-    <a href="#contact">联系方式</a>
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo" data-zh="我的个人网站" data-en="My Personal Website">我的个人网站</div>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" data-zh="首页" data-en="Home">首页</a></li>
+        <li><a href="#about" data-zh="关于我" data-en="About">关于我</a></li>
+        <li><a href="#projects" data-zh="项目" data-en="Projects">项目</a></li>
+        <li><a href="#contact" data-zh="联系" data-en="Contact">联系</a></li>
+        <li>
+          <button class="language-switch" onclick="toggleLanguage()">
+            <i class="fas fa-globe"></i>
+            <span data-zh="EN" data-en="中文">EN</span>
+          </button>
+        </li>
+      </ul>
+    </div>
   </nav>
-  <section id="about">
-    <h2>关于我</h2>
+
+  <!-- 英雄区域 -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1 data-zh="欢迎来到我的世界" data-en="Welcome to My World">欢迎来到我的世界</h1>
+      <p data-zh="我是一名充满激情的开发者，专注于创造有意义的技术解决方案" data-en="I am a passionate developer focused on creating meaningful technical solutions">我是一名充满激情的开发者，专注于创造有意义的技术解决方案</p>
+      <a href="#about" class="cta-button" data-zh="了解更多" data-en="Learn More">了解更多</a>
+    </div>
+  </section>
+
+  <!-- 关于我 -->
+  <section id="about" class="section">
+    <h2 class="section-title" data-zh="关于我" data-en="About Me">关于我</h2>
     <div class="about">
-      <!-- 个人照片，可替换 src 为你自己的照片链接 -->
-      <img src="https://via.placeholder.com/150" alt="个人头像">
-      <div class="about-text">
-        <p>在这里写一些关于你的背景、兴趣和技能的介绍。你可以用几段文字来描述你的经历、兴趣爱好和擅长领域，展示你的个性和特色。</p>
+      <div class="about-content">
+        <img src="https://via.placeholder.com/250x250/667eea/ffffff?text=头像" alt="个人头像" class="profile-img">
+        <div class="about-text">
+          <h3 data-zh="你好，我是 [你的名字]" data-en="Hello, I'm [Your Name]">你好，我是 [你的名字]</h3>
+          <p data-zh="我是一名充满创造力和技术热情的开发者。我热爱学习新技术，喜欢解决复杂问题，并且享受将想法转化为现实的过程。" data-en="I am a developer with creativity and technical passion. I love learning new technologies, solving complex problems, and enjoy transforming ideas into reality.">我是一名充满创造力和技术热情的开发者。我热爱学习新技术，喜欢解决复杂问题，并且享受将想法转化为现实的过程。</p>
+          <p data-zh="在我的职业生涯中，我专注于前端开发、用户体验设计和全栈开发。我相信技术可以改变世界，而我的使命就是创造有价值的产品来帮助人们。" data-en="In my career, I focus on frontend development, user experience design, and full-stack development. I believe technology can change the world, and my mission is to create valuable products to help people.">在我的职业生涯中，我专注于前端开发、用户体验设计和全栈开发。我相信技术可以改变世界，而我的使命就是创造有价值的产品来帮助人们。</p>
+          <div class="skills">
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">UI/UX</span>
+            <span class="skill-tag">Git</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-  <section id="projects">
-    <h2>项目展示</h2>
-    <div class="projects">
-      <div class="project-item">
-        <h3>项目标题 1</h3>
-        <p>项目描述内容简介，说明项目的目标、使用的技术和你的贡献。你可以放置一个链接到项目的存储库或网站。</p>
+
+  <!-- 项目展示 -->
+  <section id="projects" class="section">
+    <h2 class="section-title" data-zh="我的项目" data-en="My Projects">我的项目</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-image">
+          <i class="fas fa-code"></i>
+        </div>
+        <div class="project-content">
+          <h3 data-zh="个人网站" data-en="Personal Website">个人网站</h3>
+          <p data-zh="使用现代Web技术构建的响应式个人网站，展示我的技能和项目。" data-en="A responsive personal website built with modern web technologies to showcase my skills and projects.">使用现代Web技术构建的响应式个人网站，展示我的技能和项目。</p>
+          <div class="project-links">
+            <a href="#"><i class="fab fa-github"></i> <span data-zh="代码" data-en="Code">代码</span></a>
+            <a href="#"><i class="fas fa-external-link-alt"></i> <span data-zh="演示" data-en="Demo">演示</span></a>
+          </div>
+        </div>
       </div>
-      <div class="project-item">
-        <h3>项目标题 2</h3>
-        <p>另一项目简介，简明扼要地介绍项目功能、解决的问题和你在项目中的角色。</p>
+
+      <div class="project-card">
+        <div class="project-image">
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+        <div class="project-content">
+          <h3 data-zh="移动应用" data-en="Mobile App">移动应用</h3>
+          <p data-zh="一个功能丰富的移动应用，帮助用户管理日常任务和提高工作效率。" data-en="A feature-rich mobile application that helps users manage daily tasks and improve work efficiency.">一个功能丰富的移动应用，帮助用户管理日常任务和提高工作效率。</p>
+          <div class="project-links">
+            <a href="#"><i class="fab fa-github"></i> <span data-zh="代码" data-en="Code">代码</span></a>
+            <a href="#"><i class="fas fa-external-link-alt"></i> <span data-zh="演示" data-en="Demo">演示</span></a>
+          </div>
+        </div>
       </div>
-      <!-- 可继续添加更多项目 -->
+
+      <div class="project-card">
+        <div class="project-image">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <div class="project-content">
+          <h3 data-zh="数据分析平台" data-en="Data Analytics Platform">数据分析平台</h3>
+          <p data-zh="一个强大的数据分析平台，提供实时数据可视化和深度分析功能。" data-en="A powerful data analytics platform that provides real-time data visualization and deep analysis capabilities.">一个强大的数据分析平台，提供实时数据可视化和深度分析功能。</p>
+          <div class="project-links">
+            <a href="#"><i class="fab fa-github"></i> <span data-zh="代码" data-en="Code">代码</span></a>
+            <a href="#"><i class="fas fa-external-link-alt"></i> <span data-zh="演示" data-en="Demo">演示</span></a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
-  <section id="contact">
-    <h2>联系方式</h2>
-    <p>在这里提供你的联系方式，例如电子邮件地址、社交媒体链接（如 LinkedIn、GitHub、微博等），让人们可以联系到你。</p>
+
+  <!-- 联系方式 -->
+  <section id="contact" class="section">
+    <h2 class="section-title" data-zh="联系我" data-en="Contact Me">联系我</h2>
+    <div class="contact">
+      <div class="contact-grid">
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <h3 data-zh="邮箱" data-en="Email">邮箱</h3>
+          <a href="mailto:your.email@example.com">your.email@example.com</a>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-github"></i>
+          <h3>GitHub</h3>
+          <a href="https://github.com/yourusername">github.com/yourusername</a>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-linkedin"></i>
+          <h3>LinkedIn</h3>
+          <a href="https://linkedin.com/in/yourusername">linkedin.com/in/yourusername</a>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-twitter"></i>
+          <h3>Twitter</h3>
+          <a href="https://twitter.com/yourusername">@yourusername</a>
+        </div>
+      </div>
+    </div>
   </section>
+
+  <!-- 页脚 -->
   <footer>
-    <p>&copy; 2025 你的名字. 保留所有权利. | <a href="mailto:example@example.com">发送邮件</a></p>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p data-zh="&copy; 2025 [你的名字]. 保留所有权利." data-en="&copy; 2025 [Your Name]. All rights reserved.">&copy; 2025 [你的名字]. 保留所有权利.</p>
   </footer>
+
+  <script>
+    // 移动端菜单切换
+    function toggleMobileMenu() {
+      const navLinks = document.getElementById('nav-links');
+      navLinks.classList.toggle('mobile-open');
+    }
+
+    // 语言切换功能
+    let currentLanguage = 'zh';
+
+    function toggleLanguage() {
+      currentLanguage = currentLanguage === 'zh' ? 'en' : 'zh';
+      updateLanguage();
+    }
+
+    function updateLanguage() {
+      // 更新所有带有data-zh和data-en属性的元素
+      const elements = document.querySelectorAll('[data-zh][data-en]');
+      elements.forEach(element => {
+        const text = currentLanguage === 'zh' ? element.getAttribute('data-zh') : element.getAttribute('data-en');
+        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+          element.placeholder = text;
+        } else {
+          element.textContent = text;
+        }
+      });
+
+      // 更新HTML lang属性
+      document.documentElement.lang = currentLanguage === 'zh' ? 'zh-CN' : 'en';
+
+      // 更新页面标题
+      const title = currentLanguage === 'zh' ? '个人网站 - 欢迎来到我的世界' : 'Personal Website - Welcome to My World';
+      document.title = title;
+
+      // 更新语言切换按钮文本
+      const languageButton = document.querySelector('.language-switch span');
+      if (languageButton) {
+        languageButton.textContent = currentLanguage === 'zh' ? 'EN' : '中文';
+      }
+    }
+
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          // 关闭移动端菜单
+          const navLinks = document.getElementById('nav-links');
+          navLinks.classList.remove('mobile-open');
+        }
+      });
+    });
+
+    // 导航栏滚动效果
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 100) {
+        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+      } else {
+        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.boxShadow = 'none';
+      }
+    });
+
+    // 点击外部关闭移动端菜单
+    document.addEventListener('click', function(e) {
+      const navLinks = document.getElementById('nav-links');
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      
+      if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+        navLinks.classList.remove('mobile-open');
+      }
+    });
+
+    // 初始化语言设置
+    updateLanguage();
+  </script>
 </body>
 </html>
