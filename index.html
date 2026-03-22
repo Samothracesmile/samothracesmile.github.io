@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal academic website of Yihao Xia, a researcher in Computational Neuroimaging and Medical Image Analysis.">
+  <meta name="keywords" content="Yihao Xia, Computational Neuroimaging, Medical Image Analysis, Diffusion MRI, Brain Connectivity, Researcher">
   <title>Yihao Xia - Personal Website</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -16,79 +18,37 @@
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       line-height: 1.6;
-      color: #333;
-      background: #f8f9fa;
+      color: #343a40; /* Darker gray for text */
+      background: #fdfdff; /* Off-white background */
       overflow-x: hidden;
     }
 
-    /* 导航栏 */
+    /* Navbar */
     .navbar {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.85); /* Slightly more transparent */
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid #e9ecef;
+      border-bottom: 1px solid #dee2e6;
       z-index: 1000;
       padding: 1rem 0;
       transition: all 0.3s ease;
     }
 
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 1.5rem;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #495057;
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #495057;
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: color 0.3s ease;
-      padding: 0.5rem 0;
-    }
-
     .nav-links a:hover {
-      color: #007bff;
+      color: #0056b3; /* Darker blue on hover */
     }
 
-    /* 移动端菜单 */
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: #495057;
-      cursor: pointer;
-    }
-
-    /* 英雄区域 */
+    /* Hero Section */
     .hero {
-      height: 100vh;
+      height: 90vh; /* Slightly shorter */
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      color: #333;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
+      background: #ffffff; /* Simple white background */
+      color: #343a40;
     }
 
     .hero-content {
@@ -97,256 +57,162 @@
     }
 
     .hero h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
+      font-size: 3.5rem; /* Larger name */
     }
 
     .hero p {
       font-size: 1.2rem;
       margin-bottom: 2rem;
-      opacity: 0.9;
-      font-weight: 300;
+      color: #495057; /* Softer text color */
     }
 
     .cta-button {
       display: inline-block;
-      padding: 1rem 2rem;
-      background: white;
-      color: #667eea;
+      padding: 0.8rem 1.8rem;
+      background: #007bff; /* Standard blue */
+      color: white;
       text-decoration: none;
       border-radius: 8px;
-      font-weight: 600;
-      font-size: 1rem;
+      font-weight: 500;
       transition: all 0.3s ease;
+      border: 1px solid #007bff;
     }
 
     .cta-button:hover {
+      background: #0056b3;
+      border-color: #0056b3;
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
     }
 
-    /* 内容区域 */
+    /* Section */
     .section {
-      padding: 5rem 1.5rem;
-      max-width: 1200px;
+      padding: 4rem 1.5rem;
+      max-width: 1100px; /* Slightly wider */
       margin: 0 auto;
     }
 
     .section-title {
       text-align: center;
-      font-size: 2.5rem;
-      font-weight: 700;
+      font-size: 2.2rem;
+      font-weight: 600;
       margin-bottom: 3rem;
-      color: #333;
+      color: #343a40;
     }
 
-    /* 关于我 */
+    /* About Section */
     .about {
-      background: white;
-      border-radius: 12px;
+      background: #ffffff;
+      border-radius: 8px;
       padding: 3rem;
       margin: 2rem 0;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e9ecef;
     }
 
     .about-content {
       display: grid;
-      grid-template-columns: 1fr 2fr;
+      grid-template-columns: 250px 1fr; /* Fixed image size */
       gap: 3rem;
-      align-items: center;
+      align-items: flex-start; /* Align top */
     }
 
     .profile-img {
       width: 250px;
       height: 250px;
-      border-radius: 50%;
+      border-radius: 8px; /* Rounded square */
       object-fit: cover;
-      border: 4px solid #e9ecef;
-      transition: transform 0.3s ease;
-    }
-
-    .profile-img:hover {
-      transform: scale(1.05);
+      border: 1px solid #dee2e6;
     }
 
     .about-text h3 {
-      color: #333;
-      margin-bottom: 1rem;
-      font-size: 1.8rem;
-      font-weight: 600;
-    }
-
-    .about-text p {
-      color: #666;
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
-
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 1.5rem;
+      display: none; /* Hide redundant 'About' title */
     }
 
     .skill-tag {
-      background: #007bff;
-      color: white;
-      padding: 0.6rem 1.2rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: background 0.3s ease;
-    }
-
-    .skill-tag:hover {
-      background: #0056b3;
-    }
-
-    /* 项目展示 */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .project-card {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .project-image {
-      width: 100%;
-      height: 200px;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 3rem;
-    }
-
-    .project-content {
-      padding: 1.5rem;
-    }
-
-    .project-content h3 {
-      color: #333;
-      margin-bottom: 0.8rem;
-      font-size: 1.3rem;
-      font-weight: 600;
-    }
-
-    .project-content p {
-      color: #666;
-      margin-bottom: 1.2rem;
-      line-height: 1.6;
-    }
-
-    .project-links {
-      display: flex;
-      gap: 0.8rem;
-    }
-
-    .project-links a {
-      padding: 0.6rem 1.2rem;
-      background: #007bff;
-      color: white;
-      text-decoration: none;
+      background: #e9ecef; /* Lighter gray */
+      color: #495057;
+      padding: 0.5rem 1rem;
       border-radius: 6px;
       font-size: 0.9rem;
       font-weight: 500;
-      transition: background 0.3s ease;
     }
 
-    .project-links a:hover {
-      background: #0056b3;
-    }
-
-    /* 联系方式 */
-    .contact {
-      background: white;
-      border-radius: 12px;
-      padding: 3rem;
-      margin: 2rem 0;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .contact-grid {
+    /* Research & Publications Section */
+    .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
       margin-top: 2rem;
     }
 
-    .contact-item {
-      text-align: center;
-      padding: 2rem;
+    .card {
+      background: #ffffff;
       border-radius: 8px;
-      background: #f8f9fa;
-      transition: transform 0.3s ease;
+      border: 1px solid #e9ecef;
+      overflow: hidden;
+      transition: all 0.3s ease;
     }
 
-    .contact-item:hover {
-      transform: translateY(-3px);
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
     }
 
-    .contact-item i {
-      font-size: 2.5rem;
-      color: #007bff;
+    .card-content {
+      padding: 1.5rem;
+    }
+
+    .card-content h3 {
+      color: #343a40;
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    /* Publication Item */
+    .publication-item {
+      background: #ffffff;
+      padding: 1.5rem;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
       margin-bottom: 1rem;
     }
-
-    .contact-item h3 {
-      margin-bottom: 0.8rem;
-      color: #333;
-      font-weight: 600;
-      font-size: 1.2rem;
+    .publication-item p {
+        margin-bottom: 0.5rem;
+    }
+    .publication-title {
+        font-weight: 600;
+        color: #343a40;
+    }
+    .publication-authors {
+        font-style: italic;
+        color: #6c757d;
+    }
+    .publication-venue {
+        color: #495057;
     }
 
-    .contact-item a {
-      color: #007bff;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
+    /* Contact Section */
+    .contact {
+      background: transparent; /* No background */
+      border: none;
+      padding: 0;
     }
 
-    .contact-item a:hover {
-      color: #0056b3;
-    }
-
-    /* 页脚 */
+    /* Footer */
     footer {
-      background: #333;
-      color: white;
+      background: #f8f9fa; /* Light gray background */
+      color: #6c757d;
       text-align: center;
       padding: 2rem;
       margin-top: 3rem;
-    }
-
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin: 1.5rem 0;
+      border-top: 1px solid #e9ecef;
     }
 
     .social-links a {
-      color: #ccc;
+      color: #6c757d;
       font-size: 1.5rem;
       transition: color 0.3s ease;
-      padding: 0.5rem;
     }
 
     .social-links a:hover {
@@ -475,13 +341,14 @@
   </style>
 </head>
 <body>
-  <!-- 导航栏 -->
+  <!-- Navbar -->
   <nav class="navbar">
     <div class="nav-container">
-      <a href="#" class="logo">Yihao Xia</a>
+      <a href="#home" class="logo">Yihao Xia</a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
@@ -493,9 +360,6 @@
     <div class="hero-content">
       <h1>Yihao Xia</h1>
       <p>Researcher in Computational Neuroimaging and Medical Image Analysis</p>
-      <p style="font-weight: 400; font-size: 1.1rem; max-width: 700px; margin: 0 auto 2rem auto;">
-        I develop computational methods for neuroimaging, with a focus on brain structure, connectivity, and quantitative image analysis. My work combines methodological development, machine learning, and multimodal imaging to build robust and interpretable tools for neuroscience and medical research.
-      </p>
       <a href="#about" class="cta-button">Learn More</a>
     </div>
   </section>
@@ -505,9 +369,9 @@
     <h2 class="section-title">About Me</h2>
     <div class="about">
       <div class="about-content">
-        <img src="https://via.placeholder.com/250" alt="Profile Picture" class="profile-img">
+        <!-- IMPORTANT: Replace this src with the path to your actual profile picture -->
+        <img src="https://via.placeholder.com/250" alt="Yihao Xia" class="profile-img">
         <div class="about-text">
-          <h3>About</h3>
           <p>I work at the intersection of computational neuroimaging, medical image analysis, and machine learning. My research centers on developing methods for brain image processing, connectivity analysis, white matter modeling, and multimodal neuroimaging.</p>
           <p>A major goal of my work is to improve the robustness, interpretability, and practical value of neuroimaging methods. I am particularly interested in how computational models can help characterize brain structure across different spatial scales and support more sensitive and reliable imaging-based analysis.</p>
           <p>I am also interested in AI-driven approaches for medical imaging and in building tools that support reproducible, data-driven neuroscience research.</p>
@@ -516,7 +380,6 @@
             <span class="skill-tag">Medical Image Analysis</span>
             <span class="skill-tag">Brain Connectivity</span>
             <span class="skill-tag">Quantitative Imaging</span>
-            <span class="skill-tag">Multimodal Neuroimaging</span>
             <span class="skill-tag">AI for Medical Imaging</span>
           </div>
         </div>
@@ -527,24 +390,21 @@
   <!-- Research Section -->
   <section class="section" id="research">
     <h2 class="section-title">Research Overview</h2>
-    <div class="projects-grid">
-      <!-- Research Theme 1 -->
-      <div class="project-card">
-        <div class="project-content">
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-content">
           <h3>Brain Connectivity and White Matter Organization</h3>
           <p>I study computational approaches for characterizing brain connectivity and white matter structure, with an emphasis on methods that are robust, interpretable, and biologically meaningful.</p>
         </div>
       </div>
-      <!-- Research Theme 2 -->
-      <div class="project-card">
-        <div class="project-content">
+      <div class="card">
+        <div class="card-content">
           <h3>Quantitative and Multimodal Neuroimaging</h3>
           <p>My research also explores how quantitative imaging measures from multiple modalities can be integrated to better understand brain structure and variation.</p>
         </div>
       </div>
-      <!-- Research Theme 3 -->
-      <div class="project-card">
-        <div class="project-content">
+      <div class="card">
+        <div class="card-content">
           <h3>AI for Medical Imaging</h3>
           <p>I am interested in AI-driven methods that support image analysis, modeling, and reproducible research workflows in medical imaging.</p>
         </div>
@@ -552,12 +412,28 @@
     </div>
   </section>
 
+  <!-- Publications Section -->
+  <section class="section" id="publications">
+    <h2 class="section-title">Selected Publications</h2>
+    <div class="publication-item">
+        <p class="publication-title">Your Publication Title Here. (2024)</p>
+        <p class="publication-authors"><strong>Xia, Y.</strong>, Co-author, A., & Co-author, B.</p>
+        <p class="publication-venue"><em>Journal of Important Research</em>, 1(1), 1-10.</p>
+    </div>
+    <div class="publication-item">
+        <p class="publication-title">Another Interesting Paper Title. (2023)</p>
+        <p class="publication-authors">Co-author, C., <strong>Xia, Y.</strong>, & Co-author, D.</p>
+        <p class="publication-venue">In <em>Proceedings of Major Conference (MICCAI, ISMRM, etc.)</em>.</p>
+    </div>
+    <!-- Add more publications here -->
+  </section>
+
   <!-- Contact Section -->
   <section class="section" id="contact">
     <h2 class="section-title">Contact</h2>
     <div class="contact">
       <p style="text-align: center; font-size: 1.1rem; max-width: 700px; margin: 0 auto;">
-        I welcome academic collaborations and conversations in computational neuroimaging, medical image analysis, and AI for brain imaging.
+        I welcome academic collaborations and conversations in computational neuroimaging, medical image analysis, and AI for brain imaging. Please feel free to reach out via email.
       </p>
     </div>
   </section>
@@ -565,21 +441,12 @@
   <!-- Footer -->
   <footer>
     <div class="social-links">
-      <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
-      <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="#" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+      <!-- IMPORTANT: Replace # with your actual links -->
+      <a href="mailto:your-email@example.com" aria-label="Email" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="#" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="#" aria-label="Google Scholar" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
     </div>
     <p>&copy; 2024 Yihao Xia. All Rights Reserved.</p>
   </footer>
-
-  <script>
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-
-    mobileMenuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('mobile-open');
-    });
-  </script>
-</body>
 </html>
