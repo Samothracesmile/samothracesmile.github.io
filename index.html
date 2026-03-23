@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Personal academic website of Yihao Xia, a researcher in Computational Neuroimaging and Medical Image Analysis.">
   <meta name="keywords" content="Yihao Xia, Computational Neuroimaging, Medical Image Analysis, Diffusion MRI, Brain Connectivity, Researcher">
-  <title>Yihao Xia - Personal Website</title>
+  <title>Yihao Xia - Academic Homepage</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -16,338 +16,719 @@
       --border-color: #e9ecef;
       --card-bg-color: #ffffff;
       --card-bg-color-rgb: 255, 255, 255;
-      --primary-color: #007bff;
-      --primary-hover-color: #0056b3;
-      --skill-bg-color: #e9ecef;
-      --skill-text-color: #495057;
+      --primary-color: #4361ee;
+      --primary-hover-color: #3a0ca3;
+      --primary-rgb: 67, 97, 238;
+      --skill-bg-color: #eef2ff;
+      --skill-text-color: #4361ee;
       --footer-bg-color: #f8f9fa;
       --footer-text-color: #6c757d;
+      --hero-gradient: linear-gradient(135deg, #f8f9ff 0%, #eef2ff 100%);
     }
 
     [data-theme="dark"] {
-      --bg-color: #121212;
+      --bg-color: #0f0f17;
       --text-color: #e0e0e0;
       --soft-text-color: #adb5bd;
-      --border-color: #343a40;
-      --card-bg-color: #1e1e1e;
-      --card-bg-color-rgb: 30, 30, 30;
-      --primary-color: #0d6efd;
-      --primary-hover-color: #3d8bfd;
-      --skill-bg-color: #343a40;
-      --skill-text-color: #e0e0e0;
-      --footer-bg-color: #1e1e1e;
+      --border-color: #2a2a3a;
+      --card-bg-color: #1a1a2e;
+      --card-bg-color-rgb: 26, 26, 46;
+      --primary-color: #6c8fff;
+      --primary-hover-color: #8aa5ff;
+      --primary-rgb: 108, 143, 255;
+      --skill-bg-color: #1e2340;
+      --skill-text-color: #8aa5ff;
+      --footer-bg-color: #1a1a2e;
       --footer-text-color: #adb5bd;
+      --hero-gradient: linear-gradient(135deg, #0f0f17 0%, #1a1a2e 100%);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
+      line-height: 1.7;
       color: var(--text-color);
       background: var(--bg-color);
       overflow-x: hidden;
       transition: background 0.3s, color 0.3s;
     }
 
-    /* Navbar */
+    /* ── Navbar ── */
     .navbar {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(var(--card-bg-color-rgb), 0.85);
-      backdrop-filter: blur(10px);
+      background: rgba(var(--card-bg-color-rgb), 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border-color);
       z-index: 1000;
-      padding: 1rem 0;
       transition: all 0.3s ease;
     }
 
-    .nav-links a:hover {
-      color: var(--primary-hover-color);
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.85rem 1.5rem;
     }
 
-    /* Hero Section */
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-color);
+      text-decoration: none;
+      letter-spacing: -0.3px;
+      white-space: nowrap;
+    }
+
+    .logo span { color: var(--primary-color); }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 0.2rem;
+    }
+
+    .nav-links a {
+      color: var(--soft-text-color);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.4rem 0.85rem;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary-color);
+      background: rgba(var(--primary-rgb), 0.08);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    #theme-toggle {
+      background: none;
+      border: 1px solid var(--border-color);
+      color: var(--soft-text-color);
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    #theme-toggle:hover {
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+      background: rgba(var(--primary-rgb), 0.08);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    /* ── Hero ── */
     .hero {
-      height: 90vh; /* Slightly shorter */
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      background: var(--bg-color);
-      color: var(--text-color);
+      background: var(--hero-gradient);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 50%, rgba(var(--primary-rgb), 0.07) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(76, 201, 240, 0.07) 0%, transparent 50%);
+      pointer-events: none;
     }
 
     .hero-content {
-      max-width: 800px;
+      max-width: 720px;
       padding: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(var(--primary-rgb), 0.1);
+      color: var(--primary-color);
+      border: 1px solid rgba(var(--primary-rgb), 0.2);
+      padding: 0.35rem 1rem;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 1.8rem;
+      letter-spacing: 0.3px;
     }
 
     .hero h1 {
-      font-size: 3.5rem; /* Larger name */
+      font-size: 3.8rem;
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      color: var(--text-color);
+      margin-bottom: 1rem;
     }
 
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
+    .hero-subtitle {
+      font-size: 1.1rem;
       color: var(--soft-text-color);
+      margin-bottom: 0.4rem;
+      font-weight: 400;
     }
 
-    .cta-button {
-      display: inline-block;
-      padding: 0.8rem 1.8rem;
+    .hero-tagline {
+      font-size: 0.97rem;
+      color: var(--soft-text-color);
+      margin-bottom: 2.5rem;
+      opacity: 0.75;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.8rem;
       background: var(--primary-color);
       color: white;
       text-decoration: none;
       border-radius: 8px;
-      font-weight: 500;
+      font-weight: 600;
+      font-size: 0.93rem;
       transition: all 0.3s ease;
-      border: 1px solid var(--primary-color);
+      border: none;
+      cursor: pointer;
     }
 
-    .cta-button:hover {
+    .btn-primary:hover {
       background: var(--primary-hover-color);
-      border-color: var(--primary-hover-color);
       transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+      box-shadow: 0 8px 20px rgba(var(--primary-rgb), 0.3);
     }
 
-    /* Section */
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.8rem;
+      background: transparent;
+      color: var(--text-color);
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.93rem;
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+      cursor: pointer;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+      background: rgba(var(--primary-rgb), 0.06);
+      transform: translateY(-2px);
+    }
+
+    /* ── Sections ── */
     .section {
-      padding: 4rem 1.5rem;
-      max-width: 1100px; /* Slightly wider */
+      padding: 5rem 1.5rem;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
-    .section-title {
-      text-align: center;
-      font-size: 2.2rem;
-      font-weight: 600;
-      margin-bottom: 3rem;
-      color: var(--text-color);
+    .section-header { margin-bottom: 2.5rem; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
     }
 
-    /* About Section */
-    .about {
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text-color);
+      letter-spacing: -0.5px;
+    }
+
+    /* ── About ── */
+    .about-card {
       background: var(--card-bg-color);
-      border-radius: 8px;
+      border-radius: 16px;
       padding: 3rem;
-      margin: 2rem 0;
       border: 1px solid var(--border-color);
     }
 
     .about-content {
       display: grid;
-      grid-template-columns: 250px 1fr; /* Fixed image size */
+      grid-template-columns: 210px 1fr;
       gap: 3rem;
-      align-items: flex-start; /* Align top */
+      align-items: flex-start;
+    }
+
+    .profile-img-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
     }
 
     .profile-img {
-      width: 250px;
-      height: 250px;
-      border-radius: 8px; /* Rounded square */
+      width: 200px;
+      height: 200px;
+      border-radius: 14px;
       object-fit: cover;
-      border: 1px solid var(--border-color);
+      border: 3px solid var(--border-color);
     }
 
-    .about-text h3 {
-      display: none; /* Hide redundant 'About' title */
+    .profile-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .profile-links a {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.35rem 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--soft-text-color);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .profile-links a:hover {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+      background: rgba(var(--primary-rgb), 0.06);
+    }
+
+    .about-text p {
+      margin-bottom: 1rem;
+      color: var(--soft-text-color);
+      font-size: 0.96rem;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.2rem;
     }
 
     .skill-tag {
       background: var(--skill-bg-color);
       color: var(--skill-text-color);
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      font-weight: 500;
+      padding: 0.3rem 0.85rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid rgba(var(--primary-rgb), 0.15);
     }
 
-    /* Research & Publications Section */
+    /* ── News ── */
+    .news-list {
+      background: var(--card-bg-color);
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+
+    .news-item {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1.1rem 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      align-items: flex-start;
+      transition: background 0.2s;
+    }
+
+    .news-item:last-child { border-bottom: none; }
+    .news-item:hover { background: rgba(var(--primary-rgb), 0.03); }
+
+    .news-date {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      white-space: nowrap;
+      min-width: 60px;
+      padding-top: 3px;
+      letter-spacing: 0.5px;
+    }
+
+    .news-text {
+      font-size: 0.92rem;
+      color: var(--soft-text-color);
+      line-height: 1.6;
+    }
+
+    .news-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.12rem 0.55rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      margin-right: 0.4rem;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    .tag-paper { background: #e8f5e9; color: #2e7d32; }
+    .tag-award { background: #fff3e0; color: #e65100; }
+    .tag-talk  { background: #e3f2fd; color: #1565c0; }
+    [data-theme="dark"] .tag-paper { background: #1b3a20; color: #81c784; }
+    [data-theme="dark"] .tag-award { background: #3e2000; color: #ffb74d; }
+    [data-theme="dark"] .tag-talk  { background: #0d2340; color: #64b5f6; }
+
+    /* ── Research Cards ── */
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.5rem;
-      margin-top: 2rem;
     }
 
     .card {
       background: var(--card-bg-color);
-      border-radius: 8px;
+      border-radius: 14px;
       border: 1px solid var(--border-color);
       overflow: hidden;
       transition: all 0.3s ease;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+      border-color: rgba(var(--primary-rgb), 0.3);
     }
 
-    .card-content {
-      padding: 1.5rem;
+    .card-icon {
+      padding: 1.8rem 1.5rem 0.5rem;
+      font-size: 2rem;
     }
+
+    .card-content { padding: 0.8rem 1.5rem 1.5rem; }
 
     .card-content h3 {
       color: var(--text-color);
-      margin-bottom: 0.8rem;
-      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+      font-size: 1.03rem;
       font-weight: 600;
     }
 
-    /* Publication Item */
+    .card-content p {
+      font-size: 0.9rem;
+      color: var(--soft-text-color);
+      line-height: 1.65;
+    }
+
+    /* ── Publications ── */
+    .pub-filter {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .pub-filter-btn {
+      padding: 0.32rem 1rem;
+      border-radius: 100px;
+      border: 1px solid var(--border-color);
+      background: transparent;
+      color: var(--soft-text-color);
+      font-size: 0.83rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .pub-filter-btn:hover,
+    .pub-filter-btn.active {
+      background: var(--primary-color);
+      border-color: var(--primary-color);
+      color: white;
+    }
+
     .publication-item {
       background: var(--card-bg-color);
-      padding: 1.5rem;
+      padding: 1.3rem 1.5rem;
       border: 1px solid var(--border-color);
-      border-radius: 8px;
+      border-radius: 12px;
       margin-bottom: 1rem;
+      transition: all 0.25s ease;
+      display: flex;
+      gap: 1.2rem;
     }
-    .publication-item p {
-        margin-bottom: 0.5rem;
+
+    .publication-item:hover {
+      border-color: rgba(var(--primary-rgb), 0.3);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
     }
+
+    .pub-year {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      min-width: 38px;
+      padding-top: 3px;
+    }
+
+    .pub-body { flex: 1; min-width: 0; }
+
     .publication-title {
-        font-weight: 600;
-        color: var(--text-color);
+      font-weight: 600;
+      color: var(--text-color);
+      font-size: 0.96rem;
+      margin-bottom: 0.3rem;
+      line-height: 1.5;
     }
+
     .publication-authors {
-        font-style: italic;
-        color: var(--soft-text-color);
+      font-size: 0.87rem;
+      color: var(--soft-text-color);
+      margin-bottom: 0.2rem;
     }
+
     .publication-venue {
-        color: var(--soft-text-color);
+      font-size: 0.84rem;
+      color: var(--soft-text-color);
+      margin-bottom: 0.65rem;
     }
 
-    /* Contact Section */
-    .contact {
-      background: transparent; /* No background */
-      border: none;
-      padding: 0;
+    .pub-links {
+      display: flex;
+      gap: 0.45rem;
+      flex-wrap: wrap;
     }
 
-    /* Footer */
+    .pub-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.28rem;
+      padding: 0.18rem 0.65rem;
+      border: 1px solid var(--border-color);
+      border-radius: 5px;
+      font-size: 0.77rem;
+      font-weight: 600;
+      color: var(--soft-text-color);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .pub-link:hover {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+      background: rgba(var(--primary-rgb), 0.06);
+    }
+
+    /* ── Contact ── */
+    .contact-intro {
+      color: var(--soft-text-color);
+      margin-bottom: 2rem;
+      max-width: 640px;
+      font-size: 0.96rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .contact-card {
+      background: var(--card-bg-color);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.3rem 1.5rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: all 0.25s;
+      color: var(--text-color);
+    }
+
+    .contact-card:hover {
+      border-color: rgba(var(--primary-rgb), 0.4);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+      transform: translateY(-3px);
+    }
+
+    .contact-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: rgba(var(--primary-rgb), 0.1);
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      flex-shrink: 0;
+    }
+
+    .contact-info-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--soft-text-color);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 0.12rem;
+    }
+
+    .contact-info-value {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-color);
+    }
+
+    /* ── Footer ── */
     footer {
       background: var(--footer-bg-color);
       color: var(--footer-text-color);
       text-align: center;
-      padding: 2rem;
-      margin-top: 3rem;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
       border-top: 1px solid var(--border-color);
     }
 
-    .social-links a {
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links a {
       color: var(--footer-text-color);
-      font-size: 1.5rem;
-      transition: color 0.3s ease;
+      font-size: 1.25rem;
+      transition: color 0.2s, transform 0.2s;
+      display: block;
     }
 
-    .social-links a:hover {
+    .footer-links a:hover {
       color: var(--primary-color);
+      transform: translateY(-2px);
     }
 
-    /* 响应式设计 */
+    footer p { font-size: 0.84rem; opacity: 0.7; }
+
+    /* ── Scroll to top ── */
+    .scroll-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 40px;
+      height: 40px;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.88rem;
+      box-shadow: 0 4px 14px rgba(var(--primary-rgb), 0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+
+    .scroll-top.visible { opacity: 1; pointer-events: all; }
+    .scroll-top:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(var(--primary-rgb), 0.5);
+    }
+
+    /* ── Scroll reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Responsive ── */
     @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: flex; }
 
-      .mobile-menu-btn {
-        display: block;
-      }
+      .hero h1 { font-size: 2.5rem; letter-spacing: -0.8px; }
+      .hero-subtitle { font-size: 1rem; }
 
-      .hero h1 {
-        font-size: 2.2rem;
-      }
-
-      .hero p {
-        font-size: 1.1rem;
-      }
-
-      .about-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 2rem;
-      }
-
-      .profile-img {
-        width: 200px;
-        height: 200px;
-        margin: 0 auto;
-      }
-
-      .section {
-        padding: 3rem 1rem;
-      }
-
-      .section-title {
-        font-size: 2rem;
-      }
-
-      .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .about, .contact {
-        padding: 2rem;
-        margin: 1rem 0;
-      }
-
-      .project-content {
-        padding: 1.2rem;
-      }
-
-      .contact-item {
-        padding: 1.5rem;
-      }
+      .about-content { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+      .profile-img { margin: 0 auto; }
+      .skills { justify-content: center; }
+      .section { padding: 3.5rem 1rem; }
+      .about-card { padding: 2rem 1.5rem; }
+      .contact-grid { grid-template-columns: 1fr 1fr; }
+      .section-title { font-size: 2rem; }
     }
 
     @media (max-width: 480px) {
-      .hero h1 {
-        font-size: 1.8rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .section-title {
-        font-size: 1.8rem;
-      }
-
-      .about-content {
-        gap: 1.5rem;
-      }
-
-      .profile-img {
-        width: 150px;
-        height: 150px;
-      }
-
-      .skills {
-        justify-content: center;
-      }
-
-      .project-links {
-        flex-direction: column;
-      }
-
-      .project-links a {
-        text-align: center;
-      }
+      .hero h1 { font-size: 2rem; }
+      .section-title { font-size: 1.8rem; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .publication-item { flex-direction: column; gap: 0.3rem; }
+      .pub-year { min-width: auto; }
+      .scroll-top { bottom: 1.2rem; right: 1.2rem; }
     }
 
-    /* 移动端菜单展开 */
+    /* Mobile nav open */
     .nav-links.mobile-open {
       display: flex;
       flex-direction: column;
@@ -357,60 +738,76 @@
       right: 0;
       background: var(--card-bg-color);
       border-bottom: 1px solid var(--border-color);
-      padding: 1rem 0;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 0.6rem 0;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     }
 
-    .nav-links.mobile-open li {
-      margin: 0.5rem 0;
-    }
-
-    .nav-links.mobile-open a {
-      padding: 0.8rem 1.5rem;
-      display: block;
-    }
+    .nav-links.mobile-open li { margin: 0; }
+    .nav-links.mobile-open a { padding: 0.7rem 1.5rem; display: block; }
   </style>
 </head>
 <body>
+
   <!-- Navbar -->
   <nav class="navbar">
     <div class="nav-container">
-      <a href="#home" class="logo">Yihao Xia</a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#contact">Contact</a></li>
+      <a href="#home" class="logo">Yihao <span>Xia</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" data-section="about">About</a></li>
+        <li><a href="#news" data-section="news">News</a></li>
+        <li><a href="#research" data-section="research">Research</a></li>
+        <li><a href="#publications" data-section="publications">Publications</a></li>
+        <li><a href="#contact" data-section="contact">Contact</a></li>
       </ul>
-      <button id="theme-toggle" title="Toggle dark mode"><i class="fas fa-moon"></i></button>
-      <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+      <div class="nav-actions">
+        <button id="theme-toggle" title="Toggle dark mode"><i class="fas fa-moon"></i></button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu"><i class="fas fa-bars"></i></button>
+      </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero" id="home">
     <div class="hero-content">
+      <div class="hero-badge"><i class="fas fa-brain"></i>&ensp;Computational Neuroimaging</div>
       <h1>Yihao Xia</h1>
-      <p>Researcher in Computational Neuroimaging and Medical Image Analysis</p>
-      <a href="#about" class="cta-button">Learn More</a>
+      <p class="hero-subtitle">Researcher &middot; Medical Image Analysis &middot; Brain Connectivity</p>
+      <p class="hero-tagline">Developing computational methods to understand brain structure across scales.</p>
+      <div class="hero-buttons">
+        <a href="#about" class="btn-primary"><i class="fas fa-user"></i> About Me</a>
+        <a href="#publications" class="btn-outline"><i class="fas fa-file-alt"></i> Publications</a>
+      </div>
     </div>
   </section>
 
-  <!-- About Section -->
+  <!-- About -->
   <section class="section" id="about">
-    <h2 class="section-title">About Me</h2>
-    <div class="about">
+    <div class="section-header reveal">
+      <div class="section-label">Background</div>
+      <h2 class="section-title">About Me</h2>
+    </div>
+    <div class="about-card reveal">
       <div class="about-content">
-        <!-- IMPORTANT: Replace this src with the path to your actual profile picture -->
-        <img src="photo/Gemini_Generated_Image_ew6l3tew6l3tew6l.png" alt="Yihao Xia" class="profile-img">
+        <div class="profile-img-wrap">
+          <!-- Replace with your actual photo -->
+          <img src="photo/Gemini_Generated_Image_ew6l3tew6l3tew6l.png" alt="Yihao Xia" class="profile-img">
+          <div class="profile-links">
+            <a href="mailto:your-email@example.com"><i class="fas fa-envelope"></i> Email</a>
+            <a href="#" target="_blank" rel="noopener"><i class="fas fa-graduation-cap"></i> Scholar</a>
+            <a href="#" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          </div>
+        </div>
         <div class="about-text">
-          <p>I work at the intersection of computational neuroimaging, medical image analysis, and machine learning. My research centers on developing methods for brain image processing, connectivity analysis, white matter modeling, and multimodal neuroimaging.</p>
+          <p>I work at the intersection of <strong>computational neuroimaging</strong>, medical image analysis, and machine learning. My research centers on developing methods for brain image processing, connectivity analysis, white matter modeling, and multimodal neuroimaging.</p>
           <p>A major goal of my work is to improve the robustness, interpretability, and practical value of neuroimaging methods. I am particularly interested in how computational models can help characterize brain structure across different spatial scales and support more sensitive and reliable imaging-based analysis.</p>
           <p>I am also interested in AI-driven approaches for medical imaging and in building tools that support reproducible, data-driven neuroscience research.</p>
           <div class="skills">
             <span class="skill-tag">Computational Neuroimaging</span>
             <span class="skill-tag">Medical Image Analysis</span>
             <span class="skill-tag">Brain Connectivity</span>
+            <span class="skill-tag">White Matter Modeling</span>
+            <span class="skill-tag">Diffusion MRI</span>
             <span class="skill-tag">Quantitative Imaging</span>
             <span class="skill-tag">AI for Medical Imaging</span>
           </div>
@@ -419,104 +816,234 @@
     </div>
   </section>
 
-  <!-- Research Section -->
+  <!-- News -->
+  <section class="section" id="news">
+    <div class="section-header reveal">
+      <div class="section-label">Updates</div>
+      <h2 class="section-title">News</h2>
+    </div>
+    <div class="news-list reveal">
+      <div class="news-item">
+        <div class="news-date">2025.06</div>
+        <div class="news-text"><span class="news-tag tag-paper">Paper</span> New preprint on white matter microstructure modeling is available on arXiv.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">2025.04</div>
+        <div class="news-text"><span class="news-tag tag-talk">Talk</span> Presenting at ISMRM 2025 in Toronto, Canada.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">2025.01</div>
+        <div class="news-text"><span class="news-tag tag-paper">Paper</span> Paper accepted to <em>NeuroImage</em> on multimodal brain connectivity analysis.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">2024.10</div>
+        <div class="news-text"><span class="news-tag tag-paper">Paper</span> Work on diffusion MRI tractography accepted to <em>MICCAI 2024</em>.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research -->
   <section class="section" id="research">
-    <h2 class="section-title">Research Overview</h2>
+    <div class="section-header reveal">
+      <div class="section-label">Focus Areas</div>
+      <h2 class="section-title">Research</h2>
+    </div>
     <div class="card-grid">
-      <div class="card">
+      <div class="card reveal">
+        <div class="card-icon">🧠</div>
         <div class="card-content">
-          <h3>Brain Connectivity and White Matter Organization</h3>
-          <p>I study computational approaches for characterizing brain connectivity and white matter structure, with an emphasis on methods that are robust, interpretable, and biologically meaningful.</p>
+          <h3>Brain Connectivity &amp; White Matter</h3>
+          <p>Computational approaches for characterizing brain connectivity and white matter structure, emphasizing methods that are robust, interpretable, and biologically meaningful.</p>
         </div>
       </div>
-      <div class="card">
+      <div class="card reveal">
+        <div class="card-icon">📊</div>
         <div class="card-content">
-          <h3>Quantitative and Multimodal Neuroimaging</h3>
-          <p>My research also explores how quantitative imaging measures from multiple modalities can be integrated to better understand brain structure and variation.</p>
+          <h3>Quantitative &amp; Multimodal Neuroimaging</h3>
+          <p>Integrating quantitative imaging measures from multiple modalities to better understand brain structure, variation, and development across subjects and populations.</p>
         </div>
       </div>
-      <div class="card">
+      <div class="card reveal">
+        <div class="card-icon">🤖</div>
         <div class="card-content">
           <h3>AI for Medical Imaging</h3>
-          <p>I am interested in AI-driven methods that support image analysis, modeling, and reproducible research workflows in medical imaging.</p>
+          <p>Deep learning and AI-driven methods that support image analysis, modeling, and reproducible research workflows in neuroimaging and medical image analysis.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Publications Section -->
+  <!-- Publications -->
   <section class="section" id="publications">
-    <h2 class="section-title">Selected Publications</h2>
-    <div class="publication-item">
-        <p class="publication-title">Your Publication Title Here. (2024)</p>
-        <p class="publication-authors"><strong>Xia, Y.</strong>, Co-author, A., & Co-author, B.</p>
-        <p class="publication-venue"><em>Journal of Important Research</em>, 1(1), 1-10.</p>
+    <div class="section-header reveal">
+      <div class="section-label">Research Output</div>
+      <h2 class="section-title">Publications</h2>
     </div>
-    <div class="publication-item">
-        <p class="publication-title">Another Interesting Paper Title. (2023)</p>
-        <p class="publication-authors">Co-author, C., <strong>Xia, Y.</strong>, & Co-author, D.</p>
-        <p class="publication-venue">In <em>Proceedings of Major Conference (MICCAI, ISMRM, etc.)</em>.</p>
+    <div class="pub-filter reveal" id="pubFilter">
+      <button class="pub-filter-btn active" data-filter="all">All</button>
+      <button class="pub-filter-btn" data-filter="journal">Journal</button>
+      <button class="pub-filter-btn" data-filter="conference">Conference</button>
+    </div>
+
+    <div class="publication-item reveal" data-type="journal">
+      <div class="pub-year">2025</div>
+      <div class="pub-body">
+        <p class="publication-title">Your Publication Title Here.</p>
+        <p class="publication-authors"><strong>Xia, Y.</strong>, Co-author, A., &amp; Co-author, B.</p>
+        <p class="publication-venue"><em>NeuroImage</em>, 123, 100001.</p>
+        <div class="pub-links">
+          <a href="#" class="pub-link"><i class="fas fa-external-link-alt"></i> DOI</a>
+          <a href="#" class="pub-link"><i class="fas fa-file-pdf"></i> PDF</a>
+          <a href="#" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="publication-item reveal" data-type="conference">
+      <div class="pub-year">2024</div>
+      <div class="pub-body">
+        <p class="publication-title">Another Interesting Paper Title.</p>
+        <p class="publication-authors">Co-author, C., <strong>Xia, Y.</strong>, &amp; Co-author, D.</p>
+        <p class="publication-venue">In <em>Medical Image Computing and Computer Assisted Intervention (MICCAI)</em>, pp. 1–10.</p>
+        <div class="pub-links">
+          <a href="#" class="pub-link"><i class="fas fa-external-link-alt"></i> DOI</a>
+          <a href="#" class="pub-link"><i class="fas fa-file-pdf"></i> PDF</a>
+        </div>
+      </div>
     </div>
     <!-- Add more publications here -->
   </section>
 
-  <!-- Contact Section -->
+  <!-- Contact -->
   <section class="section" id="contact">
-    <h2 class="section-title">Contact</h2>
-    <div class="contact">
-      <p style="text-align: center; font-size: 1.1rem; max-width: 700px; margin: 0 auto;">
-        I welcome academic collaborations and conversations in computational neuroimaging, medical image analysis, and AI for brain imaging. Please feel free to reach out via email.
-      </p>
+    <div class="section-header reveal">
+      <div class="section-label">Get in Touch</div>
+      <h2 class="section-title">Contact</h2>
+    </div>
+    <p class="contact-intro reveal">
+      I welcome academic collaborations and conversations in computational neuroimaging, medical image analysis, and AI for brain imaging. Please feel free to reach out.
+    </p>
+    <div class="contact-grid reveal">
+      <a href="mailto:your-email@example.com" class="contact-card">
+        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+        <div>
+          <div class="contact-info-label">Email</div>
+          <div class="contact-info-value">your-email@example.com</div>
+        </div>
+      </a>
+      <a href="#" target="_blank" rel="noopener" class="contact-card">
+        <div class="contact-icon"><i class="fas fa-graduation-cap"></i></div>
+        <div>
+          <div class="contact-info-label">Google Scholar</div>
+          <div class="contact-info-value">View Publications</div>
+        </div>
+      </a>
+      <a href="#" target="_blank" rel="noopener" class="contact-card">
+        <div class="contact-icon"><i class="fab fa-github"></i></div>
+        <div>
+          <div class="contact-info-label">GitHub</div>
+          <div class="contact-info-value">@samothracesmile</div>
+        </div>
+      </a>
+      <a href="#" target="_blank" rel="noopener" class="contact-card">
+        <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+        <div>
+          <div class="contact-info-label">LinkedIn</div>
+          <div class="contact-info-value">Connect</div>
+        </div>
+      </a>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <div class="social-links">
-      <!-- IMPORTANT: Replace # with your actual links -->
+    <div class="footer-links">
       <a href="mailto:your-email@example.com" aria-label="Email" title="Email"><i class="fas fa-envelope"></i></a>
       <a href="#" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
       <a href="#" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
       <a href="#" aria-label="Google Scholar" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
     </div>
-    <p>&copy; 2024 Yihao Xia. All Rights Reserved.</p>
+    <p>&copy; 2026 Yihao Xia. All Rights Reserved.</p>
   </footer>
 
-  <script>
-    // Mobile menu
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    mobileMenuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('mobile-open');
-    });
+  <!-- Scroll to top -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
-    // Dark Mode Toggle
+  <script>
+    // ── Mobile menu ──
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    mobileMenuBtn.addEventListener('click', () => navLinks.classList.toggle('mobile-open'));
+    navLinks.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => navLinks.classList.remove('mobile-open'))
+    );
+
+    // ── Dark Mode ──
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = themeToggle.querySelector('i');
-    const currentTheme = localStorage.getItem('theme');
 
     function setTheme(theme) {
-        document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-        if (theme === 'dark') {
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
-        } else {
-            themeIcon.classList.remove('fa-sun');
-            themeIcon.classList.add('fa-moon');
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    }
+
+    const savedTheme = localStorage.getItem('theme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    setTheme(savedTheme);
+
+    themeToggle.addEventListener('click', () =>
+      setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark')
+    );
+
+    // ── Scroll to top ──
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () =>
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 400)
+    , { passive: true });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // ── Active nav highlight on scroll ──
+    const sections = document.querySelectorAll('section[id]');
+    const navAs = document.querySelectorAll('.nav-links a[data-section]');
+
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navAs.forEach(a =>
+            a.classList.toggle('active', a.dataset.section === entry.target.id)
+          );
         }
-    }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
 
-    if (currentTheme) {
-        setTheme(currentTheme);
-    } else {
-        // Default to light theme
-        setTheme('light');
-    }
+    sections.forEach(s => navObserver.observe(s));
 
-    themeToggle.addEventListener('click', () => {
-        const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        setTheme(newTheme);
+    // ── Scroll reveal ──
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ── Publication filter ──
+    document.querySelectorAll('.pub-filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.pub-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.publication-item[data-type]').forEach(item => {
+          item.style.display = (filter === 'all' || item.dataset.type === filter) ? '' : 'none';
+        });
+      });
     });
   </script>
+</body>
 </html>
