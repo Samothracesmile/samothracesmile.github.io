@@ -9,6 +9,36 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-color: #fdfdff;
+      --text-color: #343a40;
+      --soft-text-color: #495057;
+      --border-color: #e9ecef;
+      --card-bg-color: #ffffff;
+      --card-bg-color-rgb: 255, 255, 255;
+      --primary-color: #007bff;
+      --primary-hover-color: #0056b3;
+      --skill-bg-color: #e9ecef;
+      --skill-text-color: #495057;
+      --footer-bg-color: #f8f9fa;
+      --footer-text-color: #6c757d;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --soft-text-color: #adb5bd;
+      --border-color: #343a40;
+      --card-bg-color: #1e1e1e;
+      --card-bg-color-rgb: 30, 30, 30;
+      --primary-color: #0d6efd;
+      --primary-hover-color: #3d8bfd;
+      --skill-bg-color: #343a40;
+      --skill-text-color: #e0e0e0;
+      --footer-bg-color: #1e1e1e;
+      --footer-text-color: #adb5bd;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -18,9 +48,10 @@
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       line-height: 1.6;
-      color: #343a40; /* Darker gray for text */
-      background: #fdfdff; /* Off-white background */
+      color: var(--text-color);
+      background: var(--bg-color);
       overflow-x: hidden;
+      transition: background 0.3s, color 0.3s;
     }
 
     /* Navbar */
@@ -28,16 +59,16 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(255, 255, 255, 0.85); /* Slightly more transparent */
+      background: rgba(var(--card-bg-color-rgb), 0.85);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid #dee2e6;
+      border-bottom: 1px solid var(--border-color);
       z-index: 1000;
       padding: 1rem 0;
       transition: all 0.3s ease;
     }
 
     .nav-links a:hover {
-      color: #0056b3; /* Darker blue on hover */
+      color: var(--primary-hover-color);
     }
 
     /* Hero Section */
@@ -47,8 +78,8 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      background: #ffffff; /* Simple white background */
-      color: #343a40;
+      background: var(--bg-color);
+      color: var(--text-color);
     }
 
     .hero-content {
@@ -63,24 +94,24 @@
     .hero p {
       font-size: 1.2rem;
       margin-bottom: 2rem;
-      color: #495057; /* Softer text color */
+      color: var(--soft-text-color);
     }
 
     .cta-button {
       display: inline-block;
       padding: 0.8rem 1.8rem;
-      background: #007bff; /* Standard blue */
+      background: var(--primary-color);
       color: white;
       text-decoration: none;
       border-radius: 8px;
       font-weight: 500;
       transition: all 0.3s ease;
-      border: 1px solid #007bff;
+      border: 1px solid var(--primary-color);
     }
 
     .cta-button:hover {
-      background: #0056b3;
-      border-color: #0056b3;
+      background: var(--primary-hover-color);
+      border-color: var(--primary-hover-color);
       transform: translateY(-2px);
       box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
     }
@@ -97,16 +128,16 @@
       font-size: 2.2rem;
       font-weight: 600;
       margin-bottom: 3rem;
-      color: #343a40;
+      color: var(--text-color);
     }
 
     /* About Section */
     .about {
-      background: #ffffff;
+      background: var(--card-bg-color);
       border-radius: 8px;
       padding: 3rem;
       margin: 2rem 0;
-      border: 1px solid #e9ecef;
+      border: 1px solid var(--border-color);
     }
 
     .about-content {
@@ -121,7 +152,7 @@
       height: 250px;
       border-radius: 8px; /* Rounded square */
       object-fit: cover;
-      border: 1px solid #dee2e6;
+      border: 1px solid var(--border-color);
     }
 
     .about-text h3 {
@@ -129,8 +160,8 @@
     }
 
     .skill-tag {
-      background: #e9ecef; /* Lighter gray */
-      color: #495057;
+      background: var(--skill-bg-color);
+      color: var(--skill-text-color);
       padding: 0.5rem 1rem;
       border-radius: 6px;
       font-size: 0.9rem;
@@ -146,9 +177,9 @@
     }
 
     .card {
-      background: #ffffff;
+      background: var(--card-bg-color);
       border-radius: 8px;
-      border: 1px solid #e9ecef;
+      border: 1px solid var(--border-color);
       overflow: hidden;
       transition: all 0.3s ease;
     }
@@ -163,7 +194,7 @@
     }
 
     .card-content h3 {
-      color: #343a40;
+      color: var(--text-color);
       margin-bottom: 0.8rem;
       font-size: 1.2rem;
       font-weight: 600;
@@ -171,9 +202,9 @@
 
     /* Publication Item */
     .publication-item {
-      background: #ffffff;
+      background: var(--card-bg-color);
       padding: 1.5rem;
-      border: 1px solid #e9ecef;
+      border: 1px solid var(--border-color);
       border-radius: 8px;
       margin-bottom: 1rem;
     }
@@ -182,14 +213,14 @@
     }
     .publication-title {
         font-weight: 600;
-        color: #343a40;
+        color: var(--text-color);
     }
     .publication-authors {
         font-style: italic;
-        color: #6c757d;
+        color: var(--soft-text-color);
     }
     .publication-venue {
-        color: #495057;
+        color: var(--soft-text-color);
     }
 
     /* Contact Section */
@@ -201,22 +232,22 @@
 
     /* Footer */
     footer {
-      background: #f8f9fa; /* Light gray background */
-      color: #6c757d;
+      background: var(--footer-bg-color);
+      color: var(--footer-text-color);
       text-align: center;
       padding: 2rem;
       margin-top: 3rem;
-      border-top: 1px solid #e9ecef;
+      border-top: 1px solid var(--border-color);
     }
 
     .social-links a {
-      color: #6c757d;
+      color: var(--footer-text-color);
       font-size: 1.5rem;
       transition: color 0.3s ease;
     }
 
     .social-links a:hover {
-      color: #007bff;
+      color: var(--primary-color);
     }
 
     /* 响应式设计 */
@@ -324,8 +355,8 @@
       top: 100%;
       left: 0;
       right: 0;
-      background: white;
-      border-bottom: 1px solid #e9ecef;
+      background: var(--card-bg-color);
+      border-bottom: 1px solid var(--border-color);
       padding: 1rem 0;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
@@ -351,6 +382,7 @@
         <li><a href="#publications">Publications</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <button id="theme-toggle" title="Toggle dark mode"><i class="fas fa-moon"></i></button>
       <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
     </div>
   </nav>
@@ -370,7 +402,7 @@
     <div class="about">
       <div class="about-content">
         <!-- IMPORTANT: Replace this src with the path to your actual profile picture -->
-        <img src="https://via.placeholder.com/250" alt="Yihao Xia" class="profile-img">
+        <img src="photo/Gemini_Generated_Image_ew6l3tew6l3tew6l.png" alt="Yihao Xia" class="profile-img">
         <div class="about-text">
           <p>I work at the intersection of computational neuroimaging, medical image analysis, and machine learning. My research centers on developing methods for brain image processing, connectivity analysis, white matter modeling, and multimodal neuroimaging.</p>
           <p>A major goal of my work is to improve the robustness, interpretability, and practical value of neuroimaging methods. I am particularly interested in how computational models can help characterize brain structure across different spatial scales and support more sensitive and reliable imaging-based analysis.</p>
@@ -449,4 +481,42 @@
     </div>
     <p>&copy; 2024 Yihao Xia. All Rights Reserved.</p>
   </footer>
+
+  <script>
+    // Mobile menu
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('mobile-open');
+    });
+
+    // Dark Mode Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
+    const currentTheme = localStorage.getItem('theme');
+
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        if (theme === 'dark') {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        } else {
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        }
+    }
+
+    if (currentTheme) {
+        setTheme(currentTheme);
+    } else {
+        // Default to light theme
+        setTheme('light');
+    }
+
+    themeToggle.addEventListener('click', () => {
+        const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
+    });
+  </script>
 </html>
